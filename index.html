@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simon Game</title>
+    <script src="js/angular.min.js"></script>
+    <script src="js/jquery-1.11.3.js"></script>
+    <link rel="stylesheet" href="css/metro.css"/>
+    <link rel="stylesheet" href="css/custom.css"/>
+    <link href="css/metro-icons.css" rel="stylesheet">
+    <script src="js/metro.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body ng-app="simonGame">
+<div class="container" ng-controller="SimonCtrl as Ctrl" >
+
+
+
+    <table>
+        <audio id="audio"  autoplay></audio>
+        <thead>
+        <tr>
+            <th>Simon Game</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <td>
+                <input type="button" value="Start" ng-click="Ctrl.start()">
+                <input type="button" value="Reset" ng-click="Ctrl.reset()"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div ng-class="Ctrl.pass ? 'fg-red' : 'fg-green'">
+                    <h1>
+                        {{Ctrl.error}}
+                    </h1>
+                </div>
+            </td>
+        </tr>
+        </tfoot>
+        <tbody>
+        <tr>
+            <td>
+                <div>
+                    <ul>
+                        <li><button class="tile-small" ng-class="Ctrl.colors[0] ? 'bg-lightGreen' : 'bg-emerald'" ng-disabled="Ctrl.All" ng-click="Ctrl.move(0)"></button></li>
+                        <li><button class="tile-small" ng-class="Ctrl.colors[1] ? 'bg-yellow' : 'bg-amber'" ng-disabled="Ctrl.All" ng-click="Ctrl.move(1)"></button></li>
+                        <li><button class="bg-indigo tile-small" ng-class="Ctrl.colors[2] ? 'bg-lighterBlue' : 'bg-blue'" ng-disabled="Ctrl.All" ng-click="Ctrl.move(2)"></button></li>
+                        <li><button class="tile-small" ng-class="Ctrl.colors[3] ? 'bg-lightRed' : 'bg-crimson'" ng-disabled="Ctrl.All" ng-click="Ctrl.move(3)"></button></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><h2>Turnos alcanzados</h2></td>
+            <td>{{Ctrl.movimientosPermitidos}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+    <table>
+
+
+
+    </table>
+
+
+
+</div>
+</body>
+</html>
